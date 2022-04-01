@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <title>Tipos de cambio</title>
+</head>
+<body>
+<h1>
+  <span class="label label-success">Accion de mejora de base de datos</span>
+</h1>
+<div class="row">
+  <div class="col-xs-12"> <!--Telefonos-->
+    <form name="formulario" id="formulario">
+            <span class="label label-warning">Cantidad a cambiar</span>
+            <input class="form-control" type="text" name="cantidad" id="cantidad" onChange="calcular()">
+            <br>
+
+            <span class="label label-warning">Tipo de cambio</span>
+            <select class="form-control" name="opciones" id="opciones" onChange="calcular()">
+              <option value="dol_bs">Pesos a Dolares</option>
+              <option value="dol_eu">Pesos a Euros</option>
+            </select>
+            <br>
+
+            <span class="label label-success">Resultado del cambio</span>
+            <input class="form-control" type="text" name="resultado" readonly="readonly">
+            <br>
+
+            <button type="button" class="btn btn-info" onclick="limpiar()">Resetear</button>
+    </form>
+  </div>
+  <div class="col-sm-12"> 
+
+  </div>
+  <div class="col-md-12"> 
+    
+  </div>
+ 
+</div>
+<script id="jsbin-javascript">
+function limpiar(){
+  document.getElementById("cantidad").value="";
+  document.formulario.resultado.value ="";
+}
+
+function calcular (){
+  var tipo = document.getElementById("opciones").value;
+  var cantidad = document.getElementById("cantidad").value;
+  var resultado;
+  
+  if( (cantidad - 0) != cantidad && (''+cantidad).replace(/^\s+|\s+$/g, "").length > 0)
+    {
+      alert("Ingrese numeros");
+      return false;
+    }
+  else
+    {
+      if(tipo === "dol_bs")
+        {
+        resultado = cantidad * 19.50;
+        }
+      else if (tipo === "dol_eu")
+        {
+        resultado = cantidad * 26;
+        }
+      return document.formulario.resultado.value = resultado;
+    }
+}
+</script>
+
+
+
+<script id="jsbin-source-javascript" type="text/javascript">function limpiar(){
+  document.getElementById("cantidad").value="";
+  document.formulario.resultado.value ="";
+}
+
+function calcular (){
+  var tipo = document.getElementById("opciones").value;
+  var cantidad = document.getElementById("cantidad").value;
+  var resultado;
+  
+  if( (cantidad - 0) != cantidad && (''+cantidad).replace(/^\s+|\s+$/g, "").length > 0)
+    {
+      alert("Ingrese numeros");
+      return false;
+    }
+  else
+    {
+      if(tipo === "dol_bs")
+        {
+        resultado = cantidad * 19.50;
+        }
+      else if (tipo === "dol_eu")
+        {
+        resultado = cantidad  * 26;
+        }
+      return document.formulario.resultado.value = resultado;
+    }
+}</script></body>
+</html>
